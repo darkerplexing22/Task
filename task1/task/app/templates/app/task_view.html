@@ -1,0 +1,17 @@
+<h1>Project Dashboard</h1>
+<h6>Add List</h6>
+
+
+<table>
+    <tr>
+        <th>Items</th>
+    </tr>
+
+    {% for task in object_list %}
+    <tr>
+        <td>{{ task.task_list}}</td>
+    </tr>
+    {% empty %}
+    <h3>No Items in the task</h3>
+    {% endfor %}
+</table>

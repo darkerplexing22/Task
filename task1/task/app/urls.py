@@ -1,6 +1,6 @@
 from .import views
 from django.urls import path
-from .views import UserLoginView, RegisterView
+from .views import UserLoginView, RegisterView, Task
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path ('register/', views.RegisterView, name="register"),
     path ('logout/', LogoutView.as_view(next_page="login"), name='logout'),
     path ('dashboard/', views.dashboard, name="dashboard"),
+    path ('taskview/', Task.as_view(), name="taskview"),
 
 ]

@@ -3,7 +3,9 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from .models import Task
 # from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.list import ListView
 from django.contrib.auth import login
 from .forms import UserRegisterForm
 from django.contrib import messages
@@ -40,3 +42,7 @@ class UserLoginView(LoginView):
 @login_required
 def dashboard(request):
     return render(request, 'app/dashboard.html')
+
+class Task(ListView):
+    template_name = 'app/task_view.html'
+    model = Task
